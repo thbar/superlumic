@@ -105,12 +105,15 @@ if ! exists ansible; then
     sudo pip install -q ansible
 fi
 
-setStatusMessage "Create necessary folders"
+if [ ! -d "/usr/local/superlumic" ]; then
+  setStatusMessage "Create necessary folders"
 
-sudo mkdir -p /usr/local/superlumic
-sudo mkdir -p /usr/local/superlumic/roles
-sudo chmod -R g+rwx /usr/local
-sudo chgrp -R admin /usr/local
+  sudo mkdir -p /usr/local/superlumic
+  sudo mkdir -p /usr/local/superlumic/roles
+  # this part can take quite long on computer with existing stuff
+  sudo chmod -R g+rwx /usr/local
+  sudo chgrp -R admin /usr/local
+fi
 
 if [ -d "/usr/local/superlumic/config" ]; then
     setStatusMessage "Update your config from git"

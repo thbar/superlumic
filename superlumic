@@ -121,8 +121,7 @@ else
         setStatusMessage "Getting your config from your fork"
         git clone -q $1 /usr/local/superlumic/config
     else
-        setStatusMessage "Getting the default config"
-        git clone -q https://github.com/superlumic/superlumic-config.git /usr/local/superlumic/config
+        triggerError "You must pass the git repo url of your superlumic config"
     fi
 fi
 

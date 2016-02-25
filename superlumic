@@ -45,7 +45,7 @@ function exists {
 function install_clt {
     # Assert we are on OS X
     MAJOR_OS_VERSION=$(sw_vers -productVersion | awk -F "." '{print $1}')
-    EXPECTED_MAJOR_OS_VERSION=11
+    EXPECTED_MAJOR_OS_VERSION=10
     if [ "$MAJOR_OS_VERSION" -ne "$EXPECTED_MAJOR_OS_VERSION" ]; then
       triggerError "Code has only been tested against OS major version $EXPECTED_MAJOR_OS_VERSION (and you have $MAJOR_OS_VERSION)"
     fi
